@@ -82,10 +82,38 @@ Identified 5 core predictive features:
 
 ---
 
+## 🌧️ Phase 2: Rainfall Prediction using Linear Regression
+
+After performing EDA, a baseline Linear Regression model was developed to predict daily rainfall (precip) using key weather variables:
+
+['tempmin', 'humidity', 'sealevelpressure', 'cloudcover']
+
+## ⚙️ Model Pipeline
+
+- Selected 4 meteorologically significant features
+- Log-transformed target (log1p(precip)) to reduce skew
+- Scaled features using StandardScaler
+- Trained and evaluated Linear Regression on an 80–20 split
+
+## 📈 Model Performance
+
+Metric|	Value
+|---|---|
+R² Score|	0.03
+MAE|	4.73 mm
+RMSE|	15.03 mm
+
+## 💡 Insights
+
+- Linear regression captures weak linear trends but struggles with rainfall’s nonlinear patterns.
+- High humidity and cloud cover correlate positively with rainfall, while pressure correlates negatively — consistent with EDA findings.
+- This serves as a baseline model for comparison with more complex algorithms (Random Forest, XGBoost, etc.).
+
+---
+
 ## 🧩 Future scopes
 
 - Build classification model → predict Rain / No Rain using logistic regression and random forest
-- Build regression model → predict rainfall amount (mm) on rainy days
 - Add time-series features → month, rolling mean, lag precipitation
 - Deploy interactive dashboards or Streamlit app for rainfall visualization
 
